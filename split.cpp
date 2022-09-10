@@ -18,9 +18,26 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
-
+  if(in==nullptr) {
+    return;
+  }
+  else {
+    if(in->value %2==0) {
+      evens = in;
+      split(in->next, odds, evens->next);
+    }
+    else {
+      odds = in;
+      split(in->next, odds->next, evens);
+    }
+  }
 }
 
 /* If you needed a helper function, write it here */
 
 // WRITE YOUR CODE HERE
+// *Node nextval(Node*& in, Node*& odds, Node*& evens) {
+//   if(in->value %2 == 0) {
+//     return in;
+//   }
+// }
